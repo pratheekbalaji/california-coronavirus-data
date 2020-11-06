@@ -41,7 +41,7 @@ To stop the server , use Ctrl + C
 - touch Dockerfile
 4) Edit the dockerfile as follows:
 - vi Dockerfile
-'''
+```
 FROM python:3
 WORKDIR /app
 COPY requirements.txt .
@@ -49,5 +49,17 @@ RUN pip install -r requirements.txt
 ADD resulting.py /app
 ADD latimes-state-totals.csv /app
 ADD cdph-race-ethnicity.csv /app
-CMD ["bokeh","serve","--show", "/app/resulting.py", "--port", "5002"]
-'''
+CMD ["bokeh","serve","--show", "/app/resulting.py"]
+```
+5) Build the dockerfile to create docker image as follows:
+-  docker build --tag name .
+6) To check if the image is created do the following:
+- docker images 
+Here you should find that your image is created
+
+7) Next run the image as follows
+-  docker run -p 5006:5006 -it name
+8) The visualization will be rendered as http://localhost:5006/test_visualization
+
+
+
