@@ -134,3 +134,4 @@ tab2 = tab2()
 tab3 = tab3()
 # Put all the tabs into one application
 tabs = Tabs(tabs=[tab1, tab2, tab3])
+curdoc().add_root(tabs)
